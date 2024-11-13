@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Products</h1>
-    
+
     @if (Session::has('success'))
         <p class="success-message">{{ Session::get('success') }}</p>
     @endif
@@ -11,6 +11,14 @@
     @if (Session::has('error'))
         <p class="error-message">{{ Session::get('error') }}</p>
     @endif
+
+    <!-- Logout Button -->
+    <div class="mb-3">
+        <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+            @csrf
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </div>
 
     <div class="mb-3">
         <a href="{{ route('products.create') }}" class="btn btn-primary">Create New Product</a>

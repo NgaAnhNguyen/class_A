@@ -23,7 +23,7 @@ Route::get('/', function () {
 Route::get('/create-user', [UserController::class, 'createUser']);
 Route::get('login', [AuthController::class, 'formLogin'])->name('form_login');
 Route::post('login', [AuthController::class, 'login'])->name('login');
-Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
 
 Route::group(['prefix' => 'products', 'middleware' => 'check_user', 'as' => 'products.'], function () {
     Route::get('/create', [ProductController::class, 'create'])->name('create');
